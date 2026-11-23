@@ -1,0 +1,26 @@
+{
+  "releases": [
+    {
+      "version": "1.1.0",
+      "date": "2026-11-23",
+      "title": "Updates direkt in der App",
+      "changes": [
+        { "type": "neu", "text": "Die App sucht beim Start nach Updates und zeigt oben ein Banner, wenn eine neue Version da ist." },
+        { "type": "neu", "text": "Update mit einem Klick: herunterladen, neu starten, fertig. Deine Lineups bleiben erhalten." },
+        { "type": "neu", "text": "Neue Seite „Neuigkeiten“: Hier siehst du, was sich in jeder Version geändert hat." },
+        { "type": "besser", "text": "In den Einstellungen siehst du jetzt deine Version und kannst selbst nach Updates suchen." }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-11-23",
+      "title": "Erste Version",
+      "changes": [
+        { "type": "neu", "text": "Lineups mit drei Screenshots: Position, Zielpunkt und Ergebnis." },
+        { "type": "neu", "text": "Ingame-Overlay per Hotkey (F7), Lineups durchblättern mit F6 und F8." },
+        { "type": "neu", "text": "Practice-Config-Generator, der die practice.cfg direkt in deinen CS2-Ordner legt." },
+        { "type": "neu", "text": "Crosshair-Codes speichern, Lineup-Pakete exportieren und importieren." }
+      ]
+    }
+  ]
+}

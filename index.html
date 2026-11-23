@@ -16,7 +16,10 @@
         <img src="assets/icon.png" alt="" width="34" height="34">
         <span>CsUtility<b>Helper</b></span>
       </a>
-      <a class="btn small" href="#download">Download</a>
+      <div class="nav-links">
+        <a href="#news">Neuigkeiten</a>
+        <a class="btn small" href="#download">Download</a>
+      </div>
     </div>
   </header>
 
@@ -24,11 +27,11 @@
     <section class="hero">
       <div class="wrap hero-in">
         <div class="hero-text">
-          <span class="pill"><i></i>Version 1.0 · Kostenlos</span>
+          <span class="pill"><i></i><span data-ver>Version 1.1.0</span> · Kostenlos</span>
           <h1>Jede Smoke.<br><em>Jedes Mal.</em></h1>
           <p class="lead">Speicher deine CS2-Lineups mit Screenshots von Position, Zielpunkt und Ergebnis. Im Spiel blendest du sie per Hotkey ein.</p>
           <div class="cta">
-            <a class="btn big" id="download-hero" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup-1.0.0.exe">
+            <a class="btn big" id="download-hero" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup.exe">
               <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
               Für Windows herunterladen
             </a>
@@ -58,6 +61,7 @@
           <button class="tab" role="tab" data-shot="overlay-page">Ingame-Overlay</button>
           <button class="tab" role="tab" data-shot="practice">Practice-Config</button>
           <button class="tab" role="tab" data-shot="editor">Neues Lineup</button>
+          <button class="tab" role="tab" data-shot="news">Updates</button>
         </div>
         <div class="peek-box">
           <div class="window big-window">
@@ -89,16 +93,24 @@
       </div>
     </section>
 
+    <section class="news" id="news">
+      <div class="wrap">
+        <h2>Neuigkeiten</h2>
+        <p class="news-intro">Die App meldet neue Versionen von selbst. Ein Klick auf „Jetzt aktualisieren“ genügt.</p>
+        <div class="news-list" id="newsList"><p class="news-intro">Wird geladen …</p></div>
+      </div>
+    </section>
+
     <section class="download" id="download">
       <div class="wrap dl-box">
         <img src="assets/icon.png" alt="" width="72" height="72">
         <h2>Bereit für die nächste Runde?</h2>
         <p>Kostenlos. Kein Account. Deine Lineups bleiben auf deinem PC.</p>
-        <a class="btn big" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup-1.0.0.exe">
+        <a class="btn big" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup.exe">
           <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
           CsUtilityHelper herunterladen
         </a>
-        <span class="cta-meta">v1.0.0 · Windows 10 / 11 · <span data-size>ca. 116 MB</span></span>
+        <span class="cta-meta"><span data-ver>v1.1.0</span> · Windows 10 / 11 · <span data-size>ca. 116 MB</span></span>
         <details class="smartscreen">
           <summary>Windows zeigt „Der Computer wurde durch Windows geschützt“?</summary>
           <p>Das kommt, weil die App neu ist und noch kein gekauftes Code-Zertifikat hat. Klick auf <b>Weitere Informationen</b> und dann auf <b>Trotzdem ausführen</b>.</p>
@@ -119,7 +131,8 @@
       'detail': 'Drei Bilder pro Lineup: wo du stehst, worauf du zielst und wo die Granate landet. Dazu Wurfart und Anleitung.',
       'overlay-page': 'Stell ein, welche Map, welche Granaten und welche Ecke das Overlay zeigt. Die Hotkeys legst du selbst fest.',
       'practice': 'Hak an, was du brauchst. Die App schreibt die Config und legt sie direkt in deinen CS2-Ordner.',
-      'editor': 'Neues Lineup: Screenshots einfügen oder reinziehen, Map und Wurfart wählen, speichern.'
+      'editor': 'Neues Lineup: Screenshots einfügen oder reinziehen, Map und Wurfart wählen, speichern.',
+      'news': 'Neue Version? Die App zeigt ein Banner und aktualisiert sich mit einem Klick. Was neu ist, steht direkt in der App.'
     };
     const img = document.getElementById('peekImg');
     const cap = document.getElementById('peekCap');
@@ -132,6 +145,29 @@
         img.classList.remove('swap');
       }, 140);
     }));
+
+    // Neuigkeiten: gleiche changelog.json, die auch die App liest
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const cmp = (a, b) => { const x = a.split('.').map(Number), y = b.split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) - (y[i] || 0); return 0; };
+    const LABEL = { neu: 'Neu', besser: 'Besser', fix: 'Fix' };
+    fetch('changelog.json', { cache: 'no-cache' })
+      .then(r => r.json())
+      .then(({ releases }) => {
+        releases.sort((a, b) => cmp(b.version, a.version));
+        const latest = releases[0]?.version;
+        if (latest) document.querySelectorAll('[data-ver]').forEach((el, i) => { el.textContent = i === 0 ? `Version ${latest}` : `v${latest}`; });
+        document.getElementById('newsList').innerHTML = releases.map((r, i) => `
+          <details class="release" ${i === 0 ? 'open' : ''}>
+            <summary>
+              <span class="rel-ver">v${esc(r.version)}</span>
+              ${i === 0 ? '<span class="rel-new">Neueste</span>' : ''}
+              <span class="rel-title">${esc(r.title)}</span>
+              <span class="rel-date">${esc(new Date(r.date).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }))}</span>
+            </summary>
+            <ul>${(r.changes || []).map(c => `<li><span class="chg ${esc(c.type)}">${esc(LABEL[c.type] || c.type)}</span><span>${esc(c.text)}</span></li>`).join('')}</ul>
+          </details>`).join('');
+      })
+      .catch(() => { document.getElementById('newsList').innerHTML = '<p class="news-intro">Neuigkeiten konnten nicht geladen werden.</p>'; });
   </script>
 </body>
 </html>
