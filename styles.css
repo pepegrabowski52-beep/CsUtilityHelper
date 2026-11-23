@@ -181,6 +181,23 @@ section[id] { scroll-margin-top: 80px; }
 .dl-box img { border-radius: 18px; box-shadow: 0 16px 40px -12px rgba(255, 155, 38, .6); }
 .dl-box h2 { margin: 6px 0 0; }
 .dl-box p { margin: 0 0 8px; color: var(--muted); }
+.steps-mini {
+  list-style: none; counter-reset: s; padding: 0; margin: 14px 0 0;
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+}
+.steps-mini li {
+  counter-increment: s;
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 14px 8px 8px; border-radius: 99px;
+  background: #1a2029; border: 1px solid var(--line);
+  color: #c9d2dc; font-size: 14px; text-align: left;
+}
+.steps-mini li::before {
+  content: counter(s);
+  width: 22px; height: 22px; flex: none; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--ink); font-weight: 800; font-size: 12px;
+}
 .smartscreen { margin-top: 16px; max-width: 34em; color: var(--muted); font-size: 14px; text-align: left; }
 .smartscreen summary { cursor: pointer; text-align: center; }
 .smartscreen p { margin: 10px 0 0; }

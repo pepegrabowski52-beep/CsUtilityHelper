@@ -1,6 +1,15 @@
 {
   "releases": [
     {
+      "version": "1.1.1",
+      "date": "2026-11-23",
+      "title": "Kleiner Installer",
+      "changes": [
+        { "type": "neu", "text": "Auf der Website lädst du jetzt nur noch einen kleinen Installer herunter. Er holt sich die App selbst und installiert sie." },
+        { "type": "besser", "text": "Updates laden nur noch das Nötigste herunter." }
+      ]
+    },
+    {
       "version": "1.1.0",
       "date": "2026-11-23",
       "title": "Updates direkt in der App",
