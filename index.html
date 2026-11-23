@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CsUtilityHelper – CS2 Lineup-Helfer</title>
+  <meta name="description" content="Deine CS2-Granaten-Lineups mit Screenshots, Ingame-Overlay und Practice-Config. Kostenlos für Windows und VAC-sicher.">
+  <meta name="theme-color" content="#0b0e12">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="#">
+        <img src="assets/icon.png" alt="" width="34" height="34">
+        <span>CsUtility<b>Helper</b></span>
+      </a>
+      <a class="btn small" href="#download">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <span class="pill"><i></i>Version 1.0 · Kostenlos</span>
+          <h1>Jede Smoke.<br><em>Jedes Mal.</em></h1>
+          <p class="lead">Speicher deine CS2-Lineups mit Screenshots von Position, Zielpunkt und Ergebnis. Im Spiel blendest du sie per Hotkey ein.</p>
+          <div class="cta">
+            <a class="btn big" id="download-hero" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup-1.0.0.exe">
+              <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              Für Windows herunterladen
+            </a>
+            <span class="cta-meta">Windows 10 / 11 · 64 Bit · <span data-size>ca. 116 MB</span></span>
+          </div>
+          <div class="safe">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            VAC-sicher: kein Zugriff auf das Spiel, keine Injection
+          </div>
+        </div>
+
+        <div class="hero-shot">
+          <div class="window">
+            <div class="window-bar"><i></i><i></i><i></i></div>
+            <img src="assets/shot-lineups.png" alt="CsUtilityHelper: Lineup-Übersicht für Mirage" width="1280" height="800">
+          </div>
+          <img class="float-overlay" src="assets/shot-overlay.png" alt="Ingame-Overlay mit Position und Zielpunkt" width="420" height="600">
+        </div>
+      </div>
+    </section>
+
+    <section class="peek" id="peek">
+      <div class="wrap">
+        <h2>Ein kurzer Blick rein</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab on" role="tab" data-shot="detail">Lineups mit Bildern</button>
+          <button class="tab" role="tab" data-shot="overlay-page">Ingame-Overlay</button>
+          <button class="tab" role="tab" data-shot="practice">Practice-Config</button>
+          <button class="tab" role="tab" data-shot="editor">Neues Lineup</button>
+        </div>
+        <div class="peek-box">
+          <div class="window big-window">
+            <div class="window-bar"><i></i><i></i><i></i></div>
+            <img id="peekImg" src="assets/shot-detail.png" alt="Vorschau" width="1280" height="800">
+          </div>
+          <p class="peek-cap" id="peekCap">Drei Bilder pro Lineup: wo du stehst, worauf du zielst und wo die Granate landet. Dazu Wurfart und Anleitung.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="wrap grid3">
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></div>
+          <h3>Screenshots in Sekunden</h3>
+          <p>Im Spiel <kbd>F12</kbd> drücken, in der App <kbd>Strg</kbd>+<kbd>V</kbd>. Fertig.</p>
+        </div>
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><rect x="12" y="7" width="6" height="5" rx="1"/></svg></div>
+          <h3>Overlay per Hotkey</h3>
+          <p>Mit <kbd>F7</kbd> blendest du das Overlay ein, mit <kbd>F8</kbd> springst du zum nächsten Lineup. Das Spiel bleibt im Fokus.</p>
+        </div>
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
+          <h3>Practice mit einem Klick</h3>
+          <p>Die App legt eine fertige <code>practice.cfg</code> in deinen CS2-Ordner. Im Spiel tippst du dann nur <code>exec practice</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="wrap dl-box">
+        <img src="assets/icon.png" alt="" width="72" height="72">
+        <h2>Bereit für die nächste Runde?</h2>
+        <p>Kostenlos. Kein Account. Deine Lineups bleiben auf deinem PC.</p>
+        <a class="btn big" href="https://github.com/pepegrabowski52-beep/CsUtilityHelper/releases/latest/download/CsUtilityHelper-Setup-1.0.0.exe">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+          CsUtilityHelper herunterladen
+        </a>
+        <span class="cta-meta">v1.0.0 · Windows 10 / 11 · <span data-size>ca. 116 MB</span></span>
+        <details class="smartscreen">
+          <summary>Windows zeigt „Der Computer wurde durch Windows geschützt“?</summary>
+          <p>Das kommt, weil die App neu ist und noch kein gekauftes Code-Zertifikat hat. Klick auf <b>Weitere Informationen</b> und dann auf <b>Trotzdem ausführen</b>.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <span>© 2026 CsUtilityHelper</span>
+      <span>Nicht mit Valve verbunden. Counter-Strike ist eine Marke der Valve Corporation.</span>
+    </div>
+  </footer>
+
+  <script>
+    const caps = {
+      'detail': 'Drei Bilder pro Lineup: wo du stehst, worauf du zielst und wo die Granate landet. Dazu Wurfart und Anleitung.',
+      'overlay-page': 'Stell ein, welche Map, welche Granaten und welche Ecke das Overlay zeigt. Die Hotkeys legst du selbst fest.',
+      'practice': 'Hak an, was du brauchst. Die App schreibt die Config und legt sie direkt in deinen CS2-Ordner.',
+      'editor': 'Neues Lineup: Screenshots einfügen oder reinziehen, Map und Wurfart wählen, speichern.'
+    };
+    const img = document.getElementById('peekImg');
+    const cap = document.getElementById('peekCap');
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+      img.classList.add('swap');
+      setTimeout(() => {
+        img.src = `assets/shot-${t.dataset.shot}.png`;
+        cap.textContent = caps[t.dataset.shot];
+        img.classList.remove('swap');
+      }, 140);
+    }));
+  </script>
+</body>
+</html>
