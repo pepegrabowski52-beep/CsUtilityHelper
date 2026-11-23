@@ -1,6 +1,17 @@
 {
   "releases": [
     {
+      "version": "1.2.0",
+      "date": "2026-11-23",
+      "title": "Spielen & Community",
+      "changes": [
+        { "type": "neu", "text": "CS2 direkt aus der App starten: Steam-Konto auswählen, die App schließt Steam, meldet das Konto an und startet CS2." },
+        { "type": "neu", "text": "Konten für CsUtilityHelper: Registrieren und anmelden mit Benutzername, E-Mail und Passwort." },
+        { "type": "neu", "text": "Community: Teile deine Lineups mit allen. Neue Uploads und Likes erscheinen live, ohne neu zu laden." },
+        { "type": "neu", "text": "Lineups aus der Community mit einem Klick in deine eigenen Lineups übernehmen, inklusive Bilder." }
+      ]
+    },
+    {
       "version": "1.1.2",
       "date": "2026-11-23",
       "title": "Updates ohne Klickerei",
