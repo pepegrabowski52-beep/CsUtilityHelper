@@ -1,6 +1,14 @@
 {
   "releases": [
     {
+      "version": "1.1.2",
+      "date": "2026-11-23",
+      "title": "Updates ohne Klickerei",
+      "changes": [
+        { "type": "besser", "text": "Updates installieren sich jetzt im Hintergrund. Klick auf „Neu starten & installieren“, und kurz darauf ist die App wieder da, schon auf dem neuesten Stand." }
+      ]
+    },
+    {
       "version": "1.1.1",
       "date": "2026-11-23",
       "title": "Kleiner Installer",
